@@ -1,5 +1,6 @@
 function [in] = inputs_sanity_check_wrapper(in)
     [in,errors,warnings] = inputs_sanity_check(in);
+    disp(errors)
     if ~isempty(errors) > 0
         error(errors{1})
     end
