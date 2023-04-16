@@ -24,7 +24,7 @@ T7_rawdatas = RawData.Var15;  %T7PumpOutlet  [C]
 %P8_rawdatas = RawData.Var16;  %P8OilSeparatorOutlet  [bar]
 %T8_rawdatas = RawData.Var17;  %T8OilSeparatorOutlet  [C]
 %T9_rawdatas = RawData.Var18;  %T9OilPumpOutlet   [C]
-m_dot_ORC_rawdatas =  vertcat(RawData1.Var19, 1.1*RawData2.Var19); %morckgpers [kg/s]
+m_dot_ORC_rawdatas =  vertcat(RawData1.Var19, 1*RawData2.Var19); %morckgpers [kg/s]
 m_dot_w_evap_rawdatas = RawData.Var20; %mw_evaplpers [l/s]
 Tev_in_rawdatas = RawData.Var21; %[C]
 Tev_out_rawdatas = RawData.Var23; %[C]
@@ -34,7 +34,7 @@ Tcd_out_rawdatas = RawData.Var38; %[C]
 m_dot_w_cond_rawdatas = RawData.Var40; %[l/s]
 
 TExpander_rawdatas = RawData.Var49;
-Nexp_rawdatas = vertcat(RawData1.Var53, 1.3*RawData2.Var53);
+Nexp_rawdatas = vertcat(RawData1.Var53, 1.7*RawData2.Var53);
 Wexp_rawdatas = RawData.Var55;
 Npump_rawdatas = RawData.Var58;
 

@@ -292,223 +292,223 @@ grid on;
 figure(3);
 plot(X_graph_mean1 , W_mec_graph_mean1, 'b-o', X_graph_mean2 , W_mec_graph_mean2, 'g-o'); %, X_graph_meanadd , Wexp_graph_meanadd, 'ro');
 grid on;
-% 
-% 
-% %% Point 9: 2090->2100, P1=5.8, P2=2.1, Nexp=2100 and Npump=448
-% 
-% index_point9 = find(Min_time_steps>=2090 & Min_time_steps<=2100);
-% Nexp_point9 = Nexp_means(index_point9);
-% P1_point9 = P1_means(index_point9);
-% P2_point9 = P2_means(index_point9);
-% 
-% X_point9 = X1_PD(index_point9);
-% eta_v_point9 = eta_v(index_point9);
-% eta_is_point9 = eta_is_mix(index_point9);
-% 
-% X_mean_point9 = mean(X_point9);
-% Nexp_mean_point9 = mean(Nexp_point9);
-% eta_v_mean_point9 = mean(eta_v_point9);
-% eta_is_mean_point9 = mean(eta_is_point9);
-% 
-% %% Point 10: 2135->2160, P1=5.8, P2=2.1, Nexp=1950.8 and Npump=448
-% 
-% index_point10 = find(Min_time_steps>=2135 & Min_time_steps<=2160);
-% Nexp_point10 = Nexp_means(index_point10);
-% P1_point10 = P1_means(index_point10);
-% P2_point10 = P2_means(index_point10);
-% 
-% X_point10 = X1_PD(index_point10);
-% eta_v_point10 = eta_v(index_point10);
-% eta_is_point10 = eta_is_mix(index_point10);
-% 
-% X_mean_point10 = mean(X_point10);
-% Nexp_mean_point10 = mean(Nexp_point10);
-% eta_v_mean_point10 = mean(eta_v_point10);
-% eta_is_mean_point10 = mean(eta_is_point10);
-% 
-% %% Point 11: 2190->2200, P1=5.8, P2=2.1, Nexp=1800.5 and Npump=448
-% 
-% index_point11 = find(Min_time_steps>=2190 & Min_time_steps<=2200);
-% Nexp_point11 = Nexp_means(index_point11);
-% P1_point11 = P1_means(index_point11);
-% P2_point11 = P2_means(index_point11);
-% 
-% X_point11 = X1_PD(index_point11);
-% eta_v_point11 = eta_v(index_point11);
-% eta_is_point11 = eta_is_mix(index_point11);
-% 
-% X_mean_point11 = mean(X_point11);
-% Nexp_mean_point11 = mean(Nexp_point11);
-% eta_v_mean_point11 = mean(eta_v_point11);
-% eta_is_mean_point11 = mean(eta_is_point11);
-% 
-% %% Point 12: 2250->2260, P1=5.8, P2=2.1, Nexp=1650.5 and Npump=448
-% 
-% index_point12 = find(Min_time_steps>=2250 & Min_time_steps<=2260);
-% Nexp_point12 = Nexp_means(index_point12);
-% P1_point12 = P1_means(index_point12);
-% P2_point12 = P2_means(index_point12);
-% 
-% X_point12 = X1_PD(index_point12);
-% eta_v_point12 = eta_v(index_point12);
-% eta_is_point12 = eta_is_mix(index_point12);
-% 
-% X_mean_point12 = mean(X_point12);
-% Nexp_mean_point12 = mean(Nexp_point12);
-% eta_v_mean_point12 = mean(eta_v_point12);
-% eta_is_mean_point12 = mean(eta_is_point12);
-% 
-% %% Point 13: 2370->2380, P1=5.8, P2=2.1, Nexp=1500.8 and Npump=448
-% 
-% index_point13 = find(Min_time_steps>=2370 & Min_time_steps<=2380);
-% Nexp_point13 = Nexp_means(index_point13);
-% P1_point13 = P1_means(index_point13);
-% P2_point13 = P2_means(index_point13);
-% 
-% X_point13 = X1_PD(index_point13);
-% eta_v_point13 = eta_v(index_point13);
-% eta_is_point13 = eta_is_mix(index_point13);
-% 
-% X_mean_point13 = mean(X_point13);
-% Nexp_mean_point13 = mean(Nexp_point13);
-% eta_v_mean_point13 = mean(eta_v_point13);
-% eta_is_mean_point13 = mean(eta_is_point13);
-% 
-% %% Point 14: 2450->2480, P1=5.8, P2=2.1, Nexp=900 and Npump=448
-% 
-% index_point14 = find(Min_time_steps>=2450 & Min_time_steps<=2480);
-% Nexp_point14 = Nexp_means(index_point14);
-% P1_point14 = P1_means(index_point14);
-% P2_point14 = P2_means(index_point14);
-% 
-% X_point14 = X1_PD(index_point14);
-% eta_v_point14 = eta_v(index_point14);
-% eta_is_point14 = eta_is_mix(index_point14);
-% 
-% X_mean_point14 = mean(X_point14);
-% Nexp_mean_point14 = mean(Nexp_point14);
-% eta_v_mean_point14 = mean(eta_v_point14);
-% eta_is_mean_point14 = mean(eta_is_point14);
-% 
-% %% Graph 10
-% 
-% Nexp_graph_point10 = [Nexp_point9, Nexp_point10, Nexp_point11, Nexp_point12, Nexp_point13, Nexp_point14];
-% X_graph_point10 = [X_point9, X_point10, X_point11, X_point12, X_point13, X_point14];
-% eta_is_graph_point10 = [eta_is_point9, eta_is_point10, eta_is_point11, eta_is_point12, eta_is_point13, eta_is_point14];
-% eta_v_graph_point10 = [eta_v_point9, eta_v_point10, eta_v_point11, eta_v_point12, eta_v_point13,eta_v_point14];
-% 
-% Nexp_graph_mean10 = [Nexp_mean_point9, Nexp_mean_point10, Nexp_mean_point11, Nexp_mean_point12, Nexp_mean_point13, Nexp_mean_point14];
-% X_graph_mean10 = [X_mean_point9, X_mean_point10, X_mean_point11, X_mean_point12, X_mean_point13, X_mean_point14];
-% eta_is_graph_mean10 = [eta_is_mean_point9, eta_is_mean_point10, eta_is_mean_point11, eta_is_mean_point12, eta_is_mean_point13, eta_is_mean_point14];
-% eta_v_graph_mean10 = [eta_v_mean_point9, eta_v_mean_point10, eta_v_mean_point11, eta_v_mean_point12, eta_v_mean_point13, eta_v_mean_point14];
-% 
-% 
-% figure(10);
-% plot(Nexp_graph_mean10 , X_graph_mean10, 'b-o', Nexp_graph_mean10 , eta_is_graph_mean10, 'g-o', Nexp_graph_mean10 , eta_v_graph_mean10, 'r-o');
-% 
-% 
-% %% Point 15: 1260->1385, P1=5.8, P2=1.91, Nexp=2300 and Npump=366
-% 
-% index_point15 = find(Min_time_steps>=1260 & Min_time_steps<=1385);
-% Nexp_point15 = Nexp_means(index_point15);
-% P1_point15 = P1_means(index_point15);
-% P2_point15 = P2_means(index_point15);
-% rp_point15 = P1_point15./P2_point15;
-% 
-% X_point15 = X1_PD(index_point15);
-% eta_v_point15 = eta_v(index_point15);
-% eta_is_point15 = eta_is_mix(index_point15);
-% 
-% X_mean_point15 = mean(X_point15);
-% eta_v_mean_point15 = mean(eta_v_point15);
-% eta_is_mean_point15 = mean(eta_is_point15);
-% rp_mean_point15 = mean(rp_point15);
-% 
-% %% Point 16: 1420->1440, P1=5.8, P2=2.01, Nexp=2300 and Npump=366
-% 
-% index_point16 = find(Min_time_steps>=1420 & Min_time_steps<=1440);
-% Nexp_point16 = Nexp_means(index_point16);
-% P1_point16 = P1_means(index_point16);
-% P2_point16 = P2_means(index_point16);
-% rp_point16 = P1_point16./P2_point16;
-% 
-% X_point16 = X1_PD(index_point16);
-% eta_v_point16 = eta_v(index_point16);
-% eta_is_point16 = eta_is_mix(index_point16);
-% 
-% X_mean_point16 = mean(X_point16);
-% eta_v_mean_point16 = mean(eta_v_point16);
-% eta_is_mean_point16 = mean(eta_is_point16);
-% rp_mean_point16 = mean(rp_point16);
-% 
-% %% Point 17: 1460->1470, P1=5.8, P2=2.07, Nexp=2300 and Npump=366
-% 
-% index_point17 = find(Min_time_steps>=1460 & Min_time_steps<=1470);
-% Nexp_point17 = Nexp_means(index_point17);
-% P1_point17 = P1_means(index_point17);
-% P2_point17 = P2_means(index_point17);
-% rp_point17 = P1_point17./P2_point17;
-% 
-% X_point17 = X1_PD(index_point17);
-% eta_v_point17 = eta_v(index_point17);
-% eta_is_point17 = eta_is_mix(index_point17);
-% 
-% X_mean_point17 = mean(X_point17);
-% eta_v_mean_point17 = mean(eta_v_point17);
-% eta_is_mean_point17 = mean(eta_is_point17);
-% rp_mean_point17 = mean(rp_point17);
-% 
-% %% Point 18: 1510->1530, P1=5.8, P2=2.23, Nexp=2300 and Npump=366
-% 
-% index_point18 = find(Min_time_steps>=1510 & Min_time_steps<=1530);
-% Nexp_point18 = Nexp_means(index_point18);
-% P1_point18 = P1_means(index_point18);
-% P2_point18 = P2_means(index_point18);
-% rp_point18 = P1_point18./P2_point18;
-% 
-% X_point18 = X1_PD(index_point18);
-% eta_v_point18 = eta_v(index_point18);
-% eta_is_point18 = eta_is_mix(index_point18);
-% 
-% X_mean_point18 = mean(X_point18);
-% eta_v_mean_point18 = mean(eta_v_point18);
-% eta_is_mean_point18 = mean(eta_is_point18);
-% rp_mean_point18 = mean(rp_point18);
-% 
-% %% Point 19: 1575->1595, P1=5.8, P2=2.49, Nexp=2300 and Npump=366
-% 
-% index_point19 = find(Min_time_steps>=1575 & Min_time_steps<=1595);
-% Nexp_point19 = Nexp_means(index_point19);
-% P1_point19 = P1_means(index_point19);
-% P2_point19 = P2_means(index_point19);
-% rp_point19 = P1_point19./P2_point19;
-% 
-% X_point19 = X1_PD(index_point19);
-% eta_v_point19 = eta_v(index_point19);
-% eta_is_point19 = eta_is_mix(index_point19);
-% 
-% X_mean_point19 = mean(X_point19);
-% eta_v_mean_point19 = mean(eta_v_point19);
-% eta_is_mean_point19 = mean(eta_is_point19);
-% rp_mean_point19 = mean(rp_point19);
-% 
-% %%
-% rp_graph_point3 = [rp_point15, rp_point16, rp_point17, rp_point18, rp_point19];
-% eta_is_graph_point3 = [eta_is_point15, eta_is_point16, eta_is_point17, eta_is_point18, eta_is_point19];
-% eta_v_graph_point3 = [eta_v_point15, eta_v_point16, eta_v_point17, eta_v_point18, eta_v_point19];
-% 
-% rp_graph_mean3 = [rp_mean_point15, rp_mean_point16, rp_mean_point17, rp_mean_point18, rp_mean_point19];
-% eta_is_graph_mean3 = [eta_is_mean_point15, eta_is_mean_point16, eta_is_mean_point17, eta_is_mean_point18, eta_is_mean_point19];
-% eta_v_graph_mean3 = [eta_v_mean_point15, eta_v_mean_point16, eta_v_mean_point17, eta_v_mean_point18, eta_v_mean_point19];
-% 
-% 
-% %% Graph 7
+
+%% Point 9: 2090->2100, P1=5.8, P2=2.1, Nexp=2100 and Npump=448
+
+index_point9 = find(Min_time_steps>=2090 & Min_time_steps<=2100);
+Nexp_point9 = Nexp_means(index_point9);
+P1_point9 = P1_means(index_point9);
+P2_point9 = P2_means(index_point9);
+
+X_point9 = X1_PD(index_point9);
+eta_v_point9 = eta_v(index_point9);
+eta_is_point9 = eta_is(index_point9);
+
+X_mean_point9 = mean(X_point9);
+Nexp_mean_point9 = mean(Nexp_point9);
+eta_v_mean_point9 = mean(eta_v_point9);
+eta_is_mean_point9 = mean(eta_is_point9);
+
+%% Point 10: 2135->2160, P1=5.8, P2=2.1, Nexp=1950.8 and Npump=448
+
+index_point10 = find(Min_time_steps>=2135 & Min_time_steps<=2160);
+Nexp_point10 = Nexp_means(index_point10);
+P1_point10 = P1_means(index_point10);
+P2_point10 = P2_means(index_point10);
+
+X_point10 = X1_PD(index_point10);
+eta_v_point10 = eta_v(index_point10);
+eta_is_point10 = eta_is(index_point10);
+
+X_mean_point10 = mean(X_point10);
+Nexp_mean_point10 = mean(Nexp_point10);
+eta_v_mean_point10 = mean(eta_v_point10);
+eta_is_mean_point10 = mean(eta_is_point10);
+
+%% Point 11: 2190->2200, P1=5.8, P2=2.1, Nexp=1800.5 and Npump=448
+
+index_point11 = find(Min_time_steps>=2190 & Min_time_steps<=2200);
+Nexp_point11 = Nexp_means(index_point11);
+P1_point11 = P1_means(index_point11);
+P2_point11 = P2_means(index_point11);
+
+X_point11 = X1_PD(index_point11);
+eta_v_point11 = eta_v(index_point11);
+eta_is_point11 = eta_is(index_point11);
+
+X_mean_point11 = mean(X_point11);
+Nexp_mean_point11 = mean(Nexp_point11);
+eta_v_mean_point11 = mean(eta_v_point11);
+eta_is_mean_point11 = mean(eta_is_point11);
+
+%% Point 12: 2250->2260, P1=5.8, P2=2.1, Nexp=1650.5 and Npump=448
+
+index_point12 = find(Min_time_steps>=2250 & Min_time_steps<=2260);
+Nexp_point12 = Nexp_means(index_point12);
+P1_point12 = P1_means(index_point12);
+P2_point12 = P2_means(index_point12);
+
+X_point12 = X1_PD(index_point12);
+eta_v_point12 = eta_v(index_point12);
+eta_is_point12 = eta_is(index_point12);
+
+X_mean_point12 = mean(X_point12);
+Nexp_mean_point12 = mean(Nexp_point12);
+eta_v_mean_point12 = mean(eta_v_point12);
+eta_is_mean_point12 = mean(eta_is_point12);
+
+%% Point 13: 2370->2380, P1=5.8, P2=2.1, Nexp=1500.8 and Npump=448
+
+index_point13 = find(Min_time_steps>=2370 & Min_time_steps<=2380);
+Nexp_point13 = Nexp_means(index_point13);
+P1_point13 = P1_means(index_point13);
+P2_point13 = P2_means(index_point13);
+
+X_point13 = X1_PD(index_point13);
+eta_v_point13 = eta_v(index_point13);
+eta_is_point13 = eta_is(index_point13);
+
+X_mean_point13 = mean(X_point13);
+Nexp_mean_point13 = mean(Nexp_point13);
+eta_v_mean_point13 = mean(eta_v_point13);
+eta_is_mean_point13 = mean(eta_is_point13);
+
+%% Point 14: 2450->2480, P1=5.8, P2=2.1, Nexp=900 and Npump=448
+
+index_point14 = find(Min_time_steps>=2450 & Min_time_steps<=2480);
+Nexp_point14 = Nexp_means(index_point14);
+P1_point14 = P1_means(index_point14);
+P2_point14 = P2_means(index_point14);
+
+X_point14 = X1_PD(index_point14);
+eta_v_point14 = eta_v(index_point14);
+eta_is_point14 = eta_is(index_point14);
+
+X_mean_point14 = mean(X_point14);
+Nexp_mean_point14 = mean(Nexp_point14);
+eta_v_mean_point14 = mean(eta_v_point14);
+eta_is_mean_point14 = mean(eta_is_point14);
+
+%% Graph 10 Nexp vs X, eta_is, eta_v
+
+Nexp_graph_point10 = [Nexp_point9, Nexp_point10, Nexp_point11, Nexp_point12, Nexp_point13, Nexp_point14];
+X_graph_point10 = [X_point9, X_point10, X_point11, X_point12, X_point13, X_point14];
+eta_is_graph_point10 = [eta_is_point9, eta_is_point10, eta_is_point11, eta_is_point12, eta_is_point13, eta_is_point14];
+eta_v_graph_point10 = [eta_v_point9, eta_v_point10, eta_v_point11, eta_v_point12, eta_v_point13,eta_v_point14];
+
+Nexp_graph_mean10 = [Nexp_mean_point9, Nexp_mean_point10, Nexp_mean_point11, Nexp_mean_point12, Nexp_mean_point13, Nexp_mean_point14];
+X_graph_mean10 = [X_mean_point9, X_mean_point10, X_mean_point11, X_mean_point12, X_mean_point13, X_mean_point14];
+eta_is_graph_mean10 = [eta_is_mean_point9, eta_is_mean_point10, eta_is_mean_point11, eta_is_mean_point12, eta_is_mean_point13, eta_is_mean_point14];
+eta_v_graph_mean10 = [eta_v_mean_point9, eta_v_mean_point10, eta_v_mean_point11, eta_v_mean_point12, eta_v_mean_point13, eta_v_mean_point14];
+
+
+figure(10);
+plot(Nexp_graph_mean10 , X_graph_mean10, 'b-o', Nexp_graph_mean10 , eta_is_graph_mean10, 'g-o', Nexp_graph_mean10 , eta_v_graph_mean10, 'r-o');
+grid on;
+hold on;
+
+%% Point 15: 1260->1385, P1=5.8, P2=1.91, Nexp=2300 and Npump=366
+
+index_point15 = find(Min_time_steps>=1260 & Min_time_steps<=1385);
+Nexp_point15 = Nexp_means(index_point15);
+P1_point15 = P1_means(index_point15);
+P2_point15 = P2_means(index_point15);
+rp_point15 = P1_point15./P2_point15;
+
+X_point15 = X1_PD(index_point15);
+eta_v_point15 = eta_v(index_point15);
+eta_is_point15 = eta_is(index_point15);
+
+X_mean_point15 = mean(X_point15);
+eta_v_mean_point15 = mean(eta_v_point15);
+eta_is_mean_point15 = mean(eta_is_point15);
+rp_mean_point15 = mean(rp_point15);
+
+%% Point 16: 1420->1440, P1=5.8, P2=2.01, Nexp=2300 and Npump=366
+
+index_point16 = find(Min_time_steps>=1420 & Min_time_steps<=1440);
+Nexp_point16 = Nexp_means(index_point16);
+P1_point16 = P1_means(index_point16);
+P2_point16 = P2_means(index_point16);
+rp_point16 = P1_point16./P2_point16;
+
+X_point16 = X1_PD(index_point16);
+eta_v_point16 = eta_v(index_point16);
+eta_is_point16 = eta_is(index_point16);
+
+X_mean_point16 = mean(X_point16);
+eta_v_mean_point16 = mean(eta_v_point16);
+eta_is_mean_point16 = mean(eta_is_point16);
+rp_mean_point16 = mean(rp_point16);
+
+%% Point 17: 1460->1470, P1=5.8, P2=2.07, Nexp=2300 and Npump=366
+
+index_point17 = find(Min_time_steps>=1460 & Min_time_steps<=1470);
+Nexp_point17 = Nexp_means(index_point17);
+P1_point17 = P1_means(index_point17);
+P2_point17 = P2_means(index_point17);
+rp_point17 = P1_point17./P2_point17;
+
+X_point17 = X1_PD(index_point17);
+eta_v_point17 = eta_v(index_point17);
+eta_is_point17 = eta_is(index_point17);
+
+X_mean_point17 = mean(X_point17);
+eta_v_mean_point17 = mean(eta_v_point17);
+eta_is_mean_point17 = mean(eta_is_point17);
+rp_mean_point17 = mean(rp_point17);
+
+%% Point 18: 1510->1530, P1=5.8, P2=2.23, Nexp=2300 and Npump=366
+
+index_point18 = find(Min_time_steps>=1510 & Min_time_steps<=1530);
+Nexp_point18 = Nexp_means(index_point18);
+P1_point18 = P1_means(index_point18);
+P2_point18 = P2_means(index_point18);
+rp_point18 = P1_point18./P2_point18;
+
+X_point18 = X1_PD(index_point18);
+eta_v_point18 = eta_v(index_point18);
+eta_is_point18 = eta_is(index_point18);
+
+X_mean_point18 = mean(X_point18);
+eta_v_mean_point18 = mean(eta_v_point18);
+eta_is_mean_point18 = mean(eta_is_point18);
+rp_mean_point18 = mean(rp_point18);
+
+%% Point 19: 1575->1595, P1=5.8, P2=2.49, Nexp=2300 and Npump=366
+
+index_point19 = find(Min_time_steps>=1575 & Min_time_steps<=1595);
+Nexp_point19 = Nexp_means(index_point19);
+P1_point19 = P1_means(index_point19);
+P2_point19 = P2_means(index_point19);
+rp_point19 = P1_point19./P2_point19;
+
+X_point19 = X1_PD(index_point19);
+eta_v_point19 = eta_v(index_point19);
+eta_is_point19 = eta_is(index_point19);
+
+X_mean_point19 = mean(X_point19);
+eta_v_mean_point19 = mean(eta_v_point19);
+eta_is_mean_point19 = mean(eta_is_point19);
+rp_mean_point19 = mean(rp_point19);
+
+%%
+rp_graph_point3 = [rp_point15, rp_point16, rp_point17, rp_point18, rp_point19];
+eta_is_graph_point3 = [eta_is_point15, eta_is_point16, eta_is_point17, eta_is_point18, eta_is_point19];
+eta_v_graph_point3 = [eta_v_point15, eta_v_point16, eta_v_point17, eta_v_point18, eta_v_point19];
+
+rp_graph_mean3 = [rp_mean_point15, rp_mean_point16, rp_mean_point17, rp_mean_point18, rp_mean_point19];
+eta_is_graph_mean3 = [eta_is_mean_point15, eta_is_mean_point16, eta_is_mean_point17, eta_is_mean_point18, eta_is_mean_point19];
+eta_v_graph_mean3 = [eta_v_mean_point15, eta_v_mean_point16, eta_v_mean_point17, eta_v_mean_point18, eta_v_mean_point19];
+
+
+% %% Graph 7 rp vs eta_is
 % 
 % figure(7);
 % plot(rp_graph_mean3 , eta_is_graph_mean3, 'b-o');
-% 
-% %% Graph 8
-% 
-% figure(8);
-% plot(rp_graph_mean3 , eta_v_graph_mean3, 'b-o');
-% grid on;
+
+%% Graph 8 rp vs eta_v
+
+figure(8);
+plot(rp_graph_mean3 , eta_v_graph_mean3, 'b-o', rp_graph_mean3 , eta_is_graph_mean3, 'g-o');
+grid on;
