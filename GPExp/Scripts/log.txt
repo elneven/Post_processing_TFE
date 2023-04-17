@@ -1,5 +1,5 @@
  
-GPExp: results analysis of the "../Raw_datas_xlxs/exp_1" dataset
+GPExp: results analysis of the "../Raw_datas_xlxs/eta_is_GPExp_exp1" dataset
  
  
 DISCLAMER
@@ -27,22 +27,22 @@ MAIN RESULTS
 (NB: These results are stored in the out.CV and out.train variables)
  
 Whole training set (i.e. with all the data points):
-Normalized mean absolute error: 13.1679 %
+Normalized mean absolute error: 9.5566 %
 Coefficient of determination (R square): 0 %
-Normalized root mean square error (RMSE): 0.055678
+Normalized root mean square error (RMSE): 0.044719
  
 In cross-validation:
-Normalized mean absolute error: 15.9713 %
+Normalized mean absolute error: 12.3447 %
 Coefficient of determination (R square): 0 %
-Normalized root mean square error (RMSE): 0.067874
+Normalized root mean square error (RMSE): 0.058729
  
 These results can be interpreted as follows:
  
-The lowest average error that could be reached by a model predicting eta_is_mix
-as a function of rp, P1, Nexp is 13.1679 %
+The lowest average error that could be reached by a model predicting eta_is_r
+as a function of rp, P1, Nexp is 9.5566 %
  
 When predicting values that are outside of the data, an average error of
-15.9713 % can be expected
+12.3447 % can be expected
  
  
 DETECTION OF OVERFITTING
@@ -53,7 +53,7 @@ CV error should increase significantly
 However, there is no firm quantitative rule to detec overfitting. This analysis
 therefore provides a warning, which should be checked visually by plotting the function
  
-The ratio between the error in CV and training is 1.21
+The ratio between the error in CV and training is 1.29
 This value relatively low, which tends to indicate that there is no overfitting
   
  
@@ -85,17 +85,17 @@ Users should also refer to the error plot to visualize the repartition of
 the error on the normal distribution
  
 The data point with the highest probability to be an outlier is:
-Data point number 86, with an error 3.038 times higher than the standard
+Data point number 70, with an error 2.8507 times higher than the standard
 deviation of the gaussian process function at that particular point
  
 The following data points present a significance level lower than 5 percent.
 They are therefore likely to be outliers:
-Data point number 3: 2.6061
-Data point number 80: 2.0093
-Data point number 81: 1.977
-Data point number 85: 2.107
-Data point number 86: 3.038
-Data point number 87: 2.074
+Data point number 2: 2.126
+Data point number 60: 2.1393
+Data point number 64: 2.0464
+Data point number 69: 2.1699
+Data point number 70: 2.8507
+Data point number 71: 2.1009
  
  
 LENGTHSCALES AND SENSITIVITY ANALYSIS
@@ -108,14 +108,14 @@ output varies slowly in the direction of the selected input. The sensitivity
 is therefore low. Extermely high lengthscales indicate that the optimization
 of the marginal likelyhool leads to neglect the influence of the specified variable
  
-rp: 1.0613
-P1: 0.74208
-Nexp: 0.71941
+rp: 0.90146
+P1: 0.67362
+Nexp: 1.6292
  
-Prior Likelyhood: 0.5053
+Prior Likelyhood: 0.42268
  
-The most relevant variable seems to be Nexp
-The least relevant variable seems to be rp
+The most relevant variable seems to be P1
+The least relevant variable seems to be Nexp
    
  
  

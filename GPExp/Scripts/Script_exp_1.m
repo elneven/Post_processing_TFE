@@ -48,7 +48,7 @@ addpath('../code')
 % The 'name' variable is a string used for the file name of the results
 % The 'description' variable is a char array.
 
-in.filename = '../Raw_datas_xlxs/exp_1.csv';    % Data file
+in.filename = '../Raw_datas_xlxs/eta_is_GPExp_exp1.csv';    % Data file
 
 in.description = char({
 'Open-drive expander, tested by S.Declaye and L. Grégoire'
@@ -98,7 +98,7 @@ in.considered_inputs = {
 %     'phi'
     };
 
-in.considered_output = {'eta_is_mix'
+in.considered_output = {'eta_is_r'
     };
 
 %% Inlude time as an explanatory variable?
