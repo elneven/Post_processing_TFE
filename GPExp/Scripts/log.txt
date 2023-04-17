@@ -1,0 +1,136 @@
+ 
+GPExp: results analysis of the "../Raw_datas_xlxs/exp_1" dataset
+ 
+ 
+DISCLAMER
+ 
+The information provided below is provided without garantee and should
+be considered as an illustrative example of how GPExp results can be exploited
+Most of the qualitative analysis is based on experience and cannot be
+considered as firm rules. Depending on the dataset, the imposed euristic
+boundaries can vary significantly
+ 
+ 
+DATASET INFORMATION
+ 
+Open-drive expander, tested by S.Declaye and L. Grégoire    
+                                                            
+Sebastien Declaye, Sylvain Quoilin, Ludovic Guillaume and   
+Vincent Lemort, Experimental study on an open-drive scroll  
+expander integrated into an ORC system working with R245fa, 
+Energy, 2013                                                
+                                                            
+                                                            
+ 
+ 
+MAIN RESULTS
+(NB: These results are stored in the out.CV and out.train variables)
+ 
+Whole training set (i.e. with all the data points):
+Normalized mean absolute error: 13.1679 %
+Coefficient of determination (R square): 0 %
+Normalized root mean square error (RMSE): 0.055678
+ 
+In cross-validation:
+Normalized mean absolute error: 15.9713 %
+Coefficient of determination (R square): 0 %
+Normalized root mean square error (RMSE): 0.067874
+ 
+These results can be interpreted as follows:
+ 
+The lowest average error that could be reached by a model predicting eta_is_mix
+as a function of rp, P1, Nexp is 13.1679 %
+ 
+When predicting values that are outside of the data, an average error of
+15.9713 % can be expected
+ 
+ 
+DETECTION OF OVERFITTING
+ 
+Overfitting can be detected by comparing the error in training mode and in cross-
+validation: in case of overfitting the train error should remain low, while the
+CV error should increase significantly
+However, there is no firm quantitative rule to detec overfitting. This analysis
+therefore provides a warning, which should be checked visually by plotting the function
+ 
+The ratio between the error in CV and training is 1.21
+This value relatively low, which tends to indicate that there is no overfitting
+  
+ 
+RELEVANCE OF THE SELECTED INPUTS (PERMUTATIONS)
+(NB: This result is stored in the out.CV.pmae variable)
+ 
+The dependency of the output with the given inputs is checked by comparing
+the mean average error (in cross-validation) of the dataset with a random
+dataset (the same with randomly permuted outputs. The reported statistics
+in the CV.pmae variable, corresponding to the probability of having a random
+dataset performing better in terms of mean average error than the actual
+dataset.
+A pmae lower than 5 percent indicates that there is a significant correlation between
+inputs and outputs
+ 
+Permutations were not used in the present analysis
+ 
+ 
+OUTLIERS
+(NB: These results are stored in the out.outliers vector)
+ 
+The posterior of the Gaussian Process provides the likelihood function,
+with its mean and standard deviation. For each data point, the Grubbs
+test for outliers can therefore be applied: the error is expressed as the
+a multiple of the standard deviation at that particular point. According 
+to the normal distribution hypothesis, a multiple higher than 1.96 
+indicates a significance level lower than 5 percent
+Users should also refer to the error plot to visualize the repartition of 
+the error on the normal distribution
+ 
+The data point with the highest probability to be an outlier is:
+Data point number 86, with an error 3.038 times higher than the standard
+deviation of the gaussian process function at that particular point
+ 
+The following data points present a significance level lower than 5 percent.
+They are therefore likely to be outliers:
+Data point number 3: 2.6061
+Data point number 80: 2.0093
+Data point number 81: 1.977
+Data point number 85: 2.107
+Data point number 86: 3.038
+Data point number 87: 2.074
+ 
+ 
+LENGTHSCALES AND SENSITIVITY ANALYSIS
+ 
+Feature selection (i.e. determining the relevance of each input variable
+can be performed based on the optimal lengthscales of the ARD kernel
+The lengthscales are a good indicator of the relevance of a particular 
+input to predict the output. High lengthscale values indicate that the
+output varies slowly in the direction of the selected input. The sensitivity
+is therefore low. Extermely high lengthscales indicate that the optimization
+of the marginal likelyhool leads to neglect the influence of the specified variable
+ 
+rp: 1.0613
+P1: 0.74208
+Nexp: 0.71941
+ 
+Prior Likelyhood: 0.5053
+ 
+The most relevant variable seems to be Nexp
+The least relevant variable seems to be rp
+   
+ 
+ 
+ 
+ 
+PREDICTION
+ 
+Once the analysis has been performed and the results are satisfying (i.e. 
+no overfitting, outliers have been removed, accuracy is sufficient, etc),
+the result files can be used for prediction, i.e. to predict the output 
+of a set of inputs outside of the data.
+This can be done by :
+1. loading the "in" and "out" structures from the .mat result analysis file:
+   "load data-file.mat"
+2. Use the GPExp prediction function by assigning a value to each input:
+   "GP_prediction(in,results, 'rp', value1, 'P1', value2, 'Nexp', value3)"
+ 
+ 
