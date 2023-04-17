@@ -71,7 +71,7 @@ Delta_s_oil_12 = ((((T1+T2)/2)*a3 + a2)/1000)*log(T2/T1);
  
 %% 2. Calibrated properties
 % Expander inlet density mix
-d1_cali = Slope*dens1+Intercept1;
+d1_cali = 0.486481414305386*dens1+9.43341219224358;
  
 % Expander inlet refrigerant
 v1_r_cali = ((1/d1_cali)-OCR*(1/d1_oil))/(1-OCR);
@@ -134,7 +134,7 @@ s4_v = PropsSI('S', 'P', P4, 'Q', 1, Fluid)/1000; %POURQUOI???
 %% 4. Performances
 Nexp = iNexp*Ngen;
 W_mec = -((Ngen*pi)/30)*((T-T_Boost)/Eff_belt) + (Fric_slope*Nexp - 10); % C'est quoi le 1000000000?
-m_dot_th = (V_dis/rv) * (Nexp/60) * d1_cali;
+m_dot_th = (V_dis/rv) * iNexp * (Ngen/60) * d1_cali;
 eta_v = m_dot_th/m_dot_ORC;
 Vpump = 0.0214*Npump - 0.6244;
 m_dot_th_bis = (Vpump/60000)*d7_PT;
