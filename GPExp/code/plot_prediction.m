@@ -9,10 +9,16 @@ function [ success ] = plot_prediction(in,out)
 miny = min(in.y) - (max(in.y)-min(in.y))/15;
 maxy = max(in.y) + (max(in.y)-min(in.y))/15;
 
-axis([miny,maxy,miny,maxy])
+axis([0,1,0,1])
 hold on
 plot(in.y,out.train.y_pred,'r*')
-plot([miny,maxy],[miny,maxy],'k')
+plot([0,1],[0,1],'k')
+X1 = [0 1];
+Y1 = [0.05 1.05];
+X2 = [0 1];
+Y2 = [-0.05 0.95];
+plot(X1,Y1,'k--')
+plot(X2,Y2,'k--')
 if isfield(out,'CV')
     plot(in.y,out.CV.y_pred,'b+')
     legend('Train (i.e. with all data samples)','45 deg','Cross-Validation','Location','NorthWest')
