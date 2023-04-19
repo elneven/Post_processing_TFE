@@ -48,7 +48,7 @@ addpath('../code')
 % The 'name' variable is a string used for the file name of the results
 % The 'description' variable is a char array.
 
-in.filename = '../Raw_datas_xlxs/eta_is_GPExp_exp1.csv';    % Data file
+in.filename = '../Raw_datas_xlxs/eta_is_norm.csv';    % Data file
 
 in.description = char({
 'Open-drive expander, tested by S.Declaye and L. Grégoire'
@@ -91,14 +91,14 @@ in.headers = header;
 % whose value must be defined in the "outputnames variables".
 
 in.considered_inputs = {
-    'rp',
-    'P1',
-    'Nexp'
+    'rp_norm',
+    'P1_norm',
+    'Nexp_norm'
 %     'epsilon_s',
 %     'phi'
     };
 
-in.considered_output = {'eta_is_r'
+in.considered_output = {'eta_is_r_norm'
     };
 
 %% Inlude time as an explanatory variable?
