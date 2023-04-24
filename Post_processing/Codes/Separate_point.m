@@ -5,7 +5,7 @@ diff_P2 = abs(diff(P2_means));
 diff_Nexp = abs(diff(Nexp_means));
 diff_Npump = abs(diff(Npump_means));
 
-N=44;
+N=27;
 Timestep_point = zeros(2, N);
 index_point = zeros(2, N);
 k=1;
@@ -15,7 +15,7 @@ l=1;
 first = 1;
 
 
-for i=2:length(P1_means)
+for i=1:length(P1_means)
     
     if i==length(P1_means)
             Timestep_point(2,k) = Time_steady1(i);
@@ -23,14 +23,14 @@ for i=2:length(P1_means)
             break;
      end
     
-    if diff_P1(i)<=0.2 && diff_P2(i)<=0.09 && diff_Nexp(i)<=3 && diff_Npump(i)<=2 && abs(P2_means(first)-P2_means(i-1))<0.1  
+    if diff_P1(i)<=1 && diff_P2(i)<=0.1 && diff_Nexp(i)<=5 && diff_Npump(i)<=5 && abs(P2_means(first)-P2_means(i))<0.2
         continue;
         
     else
         Timestep_point(2,k) = Time_steady1(i);
         index_point(2,k) = i;
         Timestep_point(1,k+1) = Time_steady1(i+1);
-        index_point(1,k+1) = i;
+        index_point(1,k+1) = i+1;
         k=k+1;
         first = i;
     end
@@ -40,6 +40,7 @@ end
 P1_mean_points = zeros(N, 1);
 P2_mean_points = zeros(N, 1);
 Nexp_mean_points = zeros(N, 1);
+Npump_mean_points = zeros(N, 1);
 W_mec_mean_points = zeros(N, 1);
 X_mean_points = zeros(N, 1);
 eta_v_mean_points = zeros(N, 1);
@@ -48,7 +49,7 @@ rp_mean_points = zeros(N, 1);
 
 for i = 1:N
     % Extraction des bornes de l'intervalle
-   
+    
     starting = index_point(1, i);
     ending = index_point(2, i);
     
@@ -56,16 +57,18 @@ for i = 1:N
     P1_point = P1_means(starting:ending);
     P2_point = P2_means(starting:ending);
     Nexp_point = Nexp_means(starting:ending);
+    Npump_point = Npump_means(starting:ending);
     W_mec_point = W_mec(starting:ending);
     X_point = X1_PD(starting:ending);
     eta_v_point = eta_v(starting:ending);
     eta_is_r_point = eta_is_r(starting:ending);
     rp_point = P1_point/P2_point;
-    
+
     % Calcul de la moyenne
     P1_mean_point = mean(P1_point);
     P2_mean_point = mean(P2_point);
     Nexp_mean_point = mean(Nexp_point);
+    Npump_mean_point = mean(Npump_point);
     W_mec_mean_point = mean(W_mec_point);
     X_mean_point = mean(X_point);
     eta_v_mean_point = mean(eta_v_point);
@@ -76,6 +79,7 @@ for i = 1:N
     P1_mean_points(i) = P1_mean_point;
     P2_mean_points(i) = P2_mean_point;
     Nexp_mean_points(i) = Nexp_mean_point;
+    Npump_mean_points(i) = Npump_mean_point;
     W_mec_mean_points(i) = W_mec_mean_point;
     X_mean_points(i) = X_mean_point;
     eta_v_mean_points(i) = eta_v_mean_point;

@@ -1,9 +1,11 @@
 %% Read data from a table
-RawData1 = readtable('RawDatas_1.xlsx', 'Sheet', 'RawData', 'Range', 'A511:BW2512');
+filename_Rawdatas1 = 'C:\Users\elise\OneDrive\Documents\MATLAB\Thesis\Post_processing_TFE\Post_processing\Rawdatas/RawDatas_1.xlsx';
+filename_Rawdatas3 = 'C:\Users\elise\OneDrive\Documents\MATLAB\Thesis\Post_processing_TFE\Post_processing\Rawdatas/Sensors_69.xlsx';
 
-RawData2 = readtable('RawDatas_2.xlsx', 'Sheet', 'RawData', 'Range', 'A131:BW993');
+RawData1 = readtable(filename_Rawdatas1, 'Sheet', 'RawData', 'Range', 'A511:BW2512');
+RawData3 = readtable(filename_Rawdatas3, 'Sheet', 'RawData', 'Range', 'A39:BW1978');
 
-RawData = vertcat(RawData1, RawData2);
+RawData = vertcat(RawData1);
 
 %% Read raw datas
 %Time = RawData.Var1;
