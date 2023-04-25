@@ -5,7 +5,7 @@ filename_Rawdatas3 = 'C:\Users\elise\OneDrive\Documents\MATLAB\Thesis\Post_proce
 RawData1 = readtable(filename_Rawdatas1, 'Sheet', 'RawData', 'Range', 'A511:BW2512');
 RawData3 = readtable(filename_Rawdatas3, 'Sheet', 'RawData', 'Range', 'A39:BW1978');
 
-RawData = vertcat(RawData1);
+RawData = vertcat(RawData3);
 
 %% Read raw datas
 %Time = RawData.Var1;
