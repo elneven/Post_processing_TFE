@@ -14,6 +14,7 @@ s2 = out.ndgrid.s2;
 
 nv = size(in.considered_inputs,1);
 
+
 z_shaped = zeros(in.Ngrid,nv);
 for i = 1:nv
     if nv > 1
@@ -65,11 +66,12 @@ elseif nv > 2
             plottext = strcat(plottext,{' '},in.considered_inputs(indi), {' = '}, num2str(vec(indt)), {'; '});
         end
     end
+    disp(idx_sort)
     eval([ 'y_surf = y_surf(' itp(2:end) ');'])
     vecx = z_shaped(:,idx_sort(1));
     vecy = z_shaped(:,idx_sort(2));
     surf(vecy,vecx,y_surf);
-    ylabel(in.considered_inputs(idx_sort(1))); xlabel(in.considered_inputs(idx_sort(2))) ; zlabel(in.considered_output); title(plottext);
+    ylabel(in.considered_inputs(idx_sort(1)), 'Interpreter', 'latex'); xlabel(in.considered_inputs(idx_sort(2)), 'Interpreter', 'latex') ; zlabel(in.considered_output, 'Interpreter', 'latex'); %title(plottext);
     grid on
     view(45,25);
 end

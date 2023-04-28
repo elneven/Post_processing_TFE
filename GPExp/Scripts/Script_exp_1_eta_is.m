@@ -92,9 +92,9 @@ in.headers = header;
 
 in.considered_inputs = {
     'rp',
+    'X',
     'P1',
-    'Nexp',
-    'X'
+    'Nexp'
 %     'epsilon_s',
 %     'phi'
     };
@@ -225,6 +225,7 @@ in.perm = 0;
 
 in = inputs_sanity_check_wrapper(in);
 results = main_model(in);
+axis=1;
 
 %% 10. Plot and analyse the results
 figure()
@@ -232,7 +233,7 @@ plot_gaussian(in,results);
 figure()
 plot_prediction(in,results);
 figure()
-plot_regression(in,results);
+plot_regression_changed(in,results,axis);
 result_analysis(in,results);
 
 %% 11. Save simulation inputs and outputs:

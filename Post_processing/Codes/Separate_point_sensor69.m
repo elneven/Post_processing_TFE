@@ -5,7 +5,7 @@ diff_P2 = abs(diff(P2_means));
 diff_Nexp = abs(diff(Nexp_means));
 diff_Npump = abs(diff(Npump_means));
 
-N=14;
+N=10;
 Timestep_point = zeros(2, N);
 index_point = zeros(2, N);
 k=1;

@@ -48,7 +48,7 @@ addpath('../code')
 % The 'name' variable is a string used for the file name of the results
 % The 'description' variable is a char array.
 
-in.filename = '../Raw_datas/Post_processing_SS_exp1.csv';    % Data file
+in.filename = '../Raw_datas/Post_processing_exp1.csv';    % Data file
 
 in.description = char({
 'Open-drive expander, tested by S.Declaye and L. Grégoire'
@@ -90,11 +90,11 @@ in.headers = header;
 % "inputnames" variable. The "considered_output" is a single cell array,
 % whose value must be defined in the "outputnames variables".
 
-in.considered_inputs = {
+in.considered_inputs = {   
     'rp',
+    'X',
     'P1',
-    'Nexp',
-    'X'
+    'Nexp'
 %     'epsilon_s',
 %     'phi'
     };
@@ -225,6 +225,7 @@ in.perm = 0;
 
 in = inputs_sanity_check_wrapper(in);
 results = main_model(in);
+axis = 1;
 
 %% 10. Plot and analyse the results
 figure()
@@ -232,7 +233,7 @@ plot_gaussian(in,results);
 figure()
 plot_prediction(in,results);
 figure()
-plot_regression(in,results);
+plot_regression_changed(in,results,axis);
 result_analysis(in,results);
 
 %% 11. Save simulation inputs and outputs:
