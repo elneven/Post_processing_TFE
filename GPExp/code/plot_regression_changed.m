@@ -1,4 +1,4 @@
-function [ success ] = plot_regression(in,out)
+function [ success ] = plot_regression_changed(in,out,axis)
 %PLOT_RESULTS Plotting of the GPExp simulation results
 %   Required inputs:
 %   in : the input structure of GPExp
@@ -38,7 +38,9 @@ elseif nv==2
     grid on
     view(45,25);
 elseif nv > 2
-    if isfield(in,'idx_xy') %if the x and y axes are imposed
+    if axis==1
+        idx_sort = [1, 2, 3, 4];
+    elseif isfield(in,'idx_xy') %if the x and y axes are imposed
         idx_sort = [in.idx_xy, 1:(min(in.idx_xy)-1),(min(in.idx_xy)+1):(max(in.idx_xy)-1),(max(in.idx_xy)+1:nv)] ;
     else % Sort the variables in terms of their weights or lengthscale in absolute value:
         if ~isempty(strfind(in.covfunction{:},'ard'))
@@ -53,7 +55,6 @@ elseif nv > 2
     % variables:
     y_surf = permute(yp_shaped,idx_sort);
     med=med(idx_sort);
-    disp(med)
     itp=[];
     plottext = '';
     for i=1:nv
@@ -67,12 +68,11 @@ elseif nv > 2
             plottext = strcat(plottext,{' '},in.considered_inputs(indi), {' = '}, num2str(vec(indt)), {'; '});
         end
     end
-    disp(idx_sort)
     eval([ 'y_surf = y_surf(' itp(2:end) ');'])
     vecx = z_shaped(:,idx_sort(1));
     vecy = z_shaped(:,idx_sort(2));
     surf(vecy,vecx,y_surf);
-    ylabel(in.considered_inputs(idx_sort(1)), 'Interpreter', 'latex'); xlabel(in.considered_inputs(idx_sort(2)), 'Interpreter', 'latex') ; zlabel(in.considered_output, 'Interpreter', 'latex'); %title(plottext);
+    ylabel(in.considered_inputs(idx_sort(1)), 'Interpreter', 'latex'); xlabel(in.considered_inputs(idx_sort(2)), 'Interpreter', 'latex') ; zlabel('$\eta_{v}$', 'Interpreter', 'latex'); %title(plottext);
     grid on
     view(45,25);
 end

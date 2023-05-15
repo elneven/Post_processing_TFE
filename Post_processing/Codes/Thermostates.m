@@ -89,6 +89,7 @@ h1_l = PropsSI('H', 'P', P1, 'Q', 0, Fluid)/1000;
 h1_v = PropsSI('H', 'P', P1, 'Q', 1, Fluid)/1000;
 X1_PD = min(1, (h1_r_PD-h1_l)/(h1_v-h1_l));
 
+%If one phase -> can use P and T as properties
 if X1_PD==1
     h1_r_PT = PropsSI('H', 'P', P1, 'T', T1, Fluid)/1000; %[kJ/kg]
     h1_PT = (1-OCR)*h1_r_PT + OCR*h1_oil;
@@ -106,15 +107,13 @@ end
 d1_l = PropsSI('D', 'P', P1, 'Q', 0, Fluid);
 d1_v = PropsSI('D', 'P', P1, 'Q', 1, Fluid);
 Xv = (1/d1_r_cali-1/d1_l)/(1/d1_v-1/d1_l);
+% Determination of the density based on the vapour quality (verification)
 d1_r_PQ = PropsSI('D', 'P', P1, 'Q', X1_PD, Fluid);
 v1_PQ = (1/d1_r_PQ)*(1-OCR) + OCR*(1/d1_oil);
 d1_PQ = 1/v1_PQ;
 
-% Expander outlet
 
-
-
-% Refrigerant evap inlet
+% Refrigerant evaporator inlet
 h7_r_PT = PropsSI('H', 'P', P7, 'T', T7, Fluid)/1000; %[kJ/kg]
 h7_PT = (1-OCR)*h7_r_PT + OCR*h7_oil;
 d7_r_PT = PropsSI('D', 'P', P7, 'T', T7, Fluid);
@@ -160,7 +159,9 @@ else
 end
 
  
-%Properties (from balance)
+%Properties (from balance) -> not used because of latence between the
+%change of temperature (T_ev_in and T_cd_in) and the change in the
+%refrigerant
 h1_balance = Q_ev_w/m_dot_ORC + h7_PT;
 h1_r_balance = (h1_balance - OCR*h1_oil)/(1-OCR); 
 h4_balance = h4_PT + (Q_cd_w/m_dot_ORC);
@@ -168,39 +169,38 @@ X4 = (h4_balance-h4_l)/(h4_v-h4_l);
 
 %% Iteration/ h2_r_is
 
-if X1_PD==1
-    
-%     h2_r_is = PropsSI('H', 'P', P2, 'S', s1_r_PT*1000, Fluid)/1000;
-%     s2_r_is = s1_r_PT;
+% if X1_PD==1
 %     
-%     h2_is = (1-OCR)*h2_r_is+OCR*h2_oil;
+% %     h2_r_is = PropsSI('H', 'P', P2, 'S', s1_r_PT*1000, Fluid)/1000;
+% %     s2_r_is = s1_r_PT;
+% %     
+% %     h2_is = (1-OCR)*h2_r_is+OCR*h2_oil;
+% %     
+% %     eta_is = W_mec/(m_dot_ORC*(h1_PT-h2_is)*1000);
+% else
 %     
-%     eta_is = W_mec/(m_dot_ORC*(h1_PT-h2_is)*1000);
-    h2_r_is = Bissection(a4, a5, P2, OCR, Fluid, s1_PH);
-    
-    s2_r_is = PropsSI('S', 'P', P2, 'H', h2_r_is*1000, Fluid)/1000;
-    T2_is = PropsSI('T', 'P', P2, 'H', h2_r_is*1000, Fluid);
-    s2_oil_is = (a4*log(T2_is) + a5)/1000 - (a4*log(273.15)+a5)/1000 + 1.05;
-    h2_oil_is = ((a2*T2_is + (a3*T2_is^2)/2)/1000) - 401.55+217;
+%     h2_r_is = Bissection(a4, a5, P2, OCR, Fluid, s1_PH);
+%     
+%     s2_r_is = PropsSI('S', 'P', P2, 'H', h2_r_is*1000, Fluid)/1000;
+%     T2_is = PropsSI('T', 'P', P2, 'H', h2_r_is*1000, Fluid);
+%     s2_oil_is = (a4*log(T2_is) + a5)/1000 - (a4*log(273.15)+a5)/1000 + 1.05;
+%     h2_oil_is = ((a2*T2_is + (a3*T2_is^2)/2)/1000) - 401.55+217;
+% 
+%     h2_is = (1-OCR)*h2_r_is + OCR*h2_oil_is;
+%     
+%     eta_is = W_mec/(m_dot_ORC*(h1_PD-h2_is)*1000);
+% end
 
-    h2_is = (1-OCR)*h2_r_is + OCR*h2_oil_is;
-    
-    eta_is = W_mec/(m_dot_ORC*(h1_PD-h2_is)*1000);
-else
-    
-    h2_r_is = Bissection(a4, a5, P2, OCR, Fluid, s1_PH);
-    
-    s2_r_is = PropsSI('S', 'P', P2, 'H', h2_r_is*1000, Fluid)/1000;
-    T2_is = PropsSI('T', 'P', P2, 'H', h2_r_is*1000, Fluid);
-    s2_oil_is = (a4*log(T2_is) + a5)/1000 - (a4*log(273.15)+a5)/1000 + 1.05;
-    h2_oil_is = ((a2*T2_is + (a3*T2_is^2)/2)/1000) - 401.55+217;
+h2_r_is = Bissection(a4, a5, P2, OCR, Fluid, s1_PH);
+ 
+s2_r_is = PropsSI('S', 'P', P2, 'H', h2_r_is*1000, Fluid)/1000;
+T2_is = PropsSI('T', 'P', P2, 'H', h2_r_is*1000, Fluid);
+s2_oil_is = (a4*log(T2_is) + a5)/1000 - (a4*log(273.15)+a5)/1000 + 1.05;
+h2_oil_is = ((a2*T2_is + (a3*T2_is^2)/2)/1000) - 401.55+217;
 
-    h2_is = (1-OCR)*h2_r_is + OCR*h2_oil_is;
-    
-    eta_is = W_mec/(m_dot_ORC*(h1_PD-h2_is)*1000);
-end
+h2_is = (1-OCR)*h2_r_is + OCR*h2_oil_is;
 
-
+eta_is = W_mec/(m_dot_ORC*(h1_PD-h2_is)*1000);
 eta_is_r = (W_mec/1000)/(m_dot_ORC*(1-OCR)*(h1_r_PD-h2_r_is) + OCR*(m_dot_ORC/d1_oil)*(P1_bar-P2_bar)*100);
 
 

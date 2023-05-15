@@ -48,7 +48,7 @@ addpath('../code')
 % The 'name' variable is a string used for the file name of the results
 % The 'description' variable is a char array.
 
-in.filename = '../Raw_datas/Post_processing_exp1.csv';    % Data file
+in.filename = '../Raw_datas/GPExp_exp1.csv';    % Data file
 
 in.description = char({
 'Open-drive expander, tested by S.Declaye and L. Grégoire'

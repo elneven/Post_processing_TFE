@@ -7,7 +7,7 @@ RawData1 = readtable(filename_Rawdatas1, 'Sheet', 'RawData', 'Range', 'A511:BW25
 RawData2 = readtable(filename_Rawdatas2, 'Sheet', 'RawData', 'Range', 'A131:BW992');
 RawData3 = readtable(filename_Rawdatas3, 'Sheet', 'RawData', 'Range', 'A39:BW1978');
 
-RawData = vertcat(RawData2);
+RawData = vertcat(RawData2, RawData3);
 
 %% Read raw datas
 %Time = RawData.Var1;

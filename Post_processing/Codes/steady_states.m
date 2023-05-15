@@ -1,10 +1,8 @@
 function [Time_steady] = steady_states(P1_rawdatas, P2_rawdatas, Tev_in_rawdatas, Tev_out_rawdatas, Q_ev_rawdatas, m_dot_ORC_rawdatas)
 
-
 %Calculate the difference between the datas and their previous ones
 diff_P1 = abs(diff(P1_rawdatas));
 P1_steady_ind = diff_P1<=0.12; %Index of the steady points for P1
-
 
 diff_P2 = abs(diff(P2_rawdatas));
 P2_steady_ind = diff_P2<=0.05;
@@ -18,9 +16,9 @@ Tev_out_steady_ind = diff_Tev_out<=0.2;
 diff_Q_ev = abs(diff(Q_ev_rawdatas));
 Q_ev_steady_ind = diff_Q_ev<=1.1;
 
-TimeStep_steady_ind = zeros(length(P1_rawdatas),1); %Index of the steady states points
+TimeStep_steady_ind = zeros(length(P1_rawdatas),1); %Index of the steady points
 
-p=1;
+p=1; %Index to count the number of steady point successif
 N=20;
 Time_steady = zeros(N, 80);
 l=1;
@@ -29,12 +27,17 @@ epsilon_m_ORC = 0.018;
 
 for i=1:length(P1_rawdatas)-1
     
+    %If all of those properties are steady states points then the points is
+    %considered as steady
     if P1_steady_ind(i)==1 && P2_steady_ind(i)==1 && Tev_in_steady_ind(i)==1 && Tev_out_steady_ind(i)==1 && Q_ev_steady_ind(i)==1
         TimeStep_steady_ind(i)=1;
     end
     
+    %p is incremented while the poitns are steady
     if TimeStep_steady_ind(i)==1 && p<N
         p = p+1;
+    %if the number of steady point is equal to 20, then those points are
+    %steady states and represent an experimental point
     elseif p==N && abs(P1_rawdatas(i-p+1)-P1_rawdatas(i))<epsilon_P1 && P1_rawdatas(i)>5.6 && P2_rawdatas(i)>1.9 && P2_rawdatas(i-p+1)>1.9 && abs(m_dot_ORC_rawdatas(i-p+1)-m_dot_ORC_rawdatas(i))<epsilon_m_ORC
         indices_steady=i-p+1:i;
         Time_steady(:,l) = indices_steady.';
@@ -48,10 +51,10 @@ for i=1:length(P1_rawdatas)-1
 end
 
 %% Find the means of all the interesting datas
-% Trouver les colonnes non-nulles
+% Finds column different to zero
 nonZeroCols = any(Time_steady, 1);
 
-% Sélectionner les colonnes non-nulles
+% Choose the column different to zero
 Time_steady = Time_steady(:, nonZeroCols);
 
 
